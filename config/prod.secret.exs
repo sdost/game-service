@@ -9,7 +9,5 @@ config :game_service, GameService.Endpoint,
 # Configure your database
 config :game_service, GameService.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: System.get_env("DATABASE_USERNAME"),
-  password: System.get_env("DATABASE_PASSWORD"),
-  database: "game_service_heroku_prod",
+  url: System.get_env("DATABASE_URL"),
   pool_size: 20
