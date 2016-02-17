@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Game Service API Schema",
+
+  "definitions": {
+
+    "player_request": {
+      "type": "object",
+      "required": ["player"],
+      "properties": {
+        "player": {
+          "$ref": "#/definitions/player"
+        }
+      }
+    },
+
+    "player": {
+      "type": "object",
+      "required": ["email", "name", "social_id", "puzzle_data", "friends"],
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "social_id": {
+          "type": "string"
+        },
+        "puzzle_data": {
+          "$ref": "#/definitions/puzzle_data"
+        },
+        "friends": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+
+    "puzzle_data": {
+      "type": "object",
+      "required": ["puzzles", "scores", "stars"],
+      "properties": {
+        "puzzles": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "uniqueItems": true
+        },
+        "scores": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "stars": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}
